@@ -21,7 +21,7 @@ body {
   background-color: black;
   color: white;
 }
-body #playerChoice {
+body .playerChoice {
   border: 3px solid white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,17 +36,92 @@ body #playerChoice {
   padding: 20px;
   margin: 50px 25vw;
 }
-body #playerChoice h2 {
+body .playerChoice h2 {
   margin: 5px;
 }
-body #playerChoice input[type=text] {
+body .playerChoice input[type=text] {
   height: 30px;
   font-size: large;
   margin-bottom: 10px;
 }
-body #playerChoice #startGame {
+body .playerChoice #startGame {
   margin-top: 10px;
   width: 5vw;
   height: 40px;
   font-weight: bold;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+body .playerChoice #startGame:hover {
+  background-color: white;
+  color: black;
+}
+body .gameBoard {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid white;
+  text-align: center;
+  padding: 40px;
+}
+body .gameBoard #playerTurn {
+  margin-bottom: 50px;
+}
+body .gameBoard #allSquares {
+  background-color: white;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-bottom: 70px;
+}
+body .gameBoard #allSquares .square {
+  background-color: black;
+  height: 180px;
+  width: 180px;
+}
+body .gameBoard .restart {
+  width: 200px;
+  height: 70px;
+  justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  border: 1px solid white;
+}
+body .gameBoard .restart:hover {
+  background-color: white;
+  color: black;
+}
+body .winner {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 200px;
+}
+body .winner #winnerOutput {
+  font-size: 3em;
+  text-decoration: underline;
+  margin-bottom: 100px;
+}
+body .winner #newGame {
+  width: 200px;
+  height: 70px;
+  font-size: 1.5em;
+  color: white;
+  border: 1px solid white;
+  background-color: black;
+  font-weight: bold;
+  justify-self: center;
+}
+body .winner #newGame:hover {
+  background-color: white;
+  color: black;
+}
+body .hide {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */

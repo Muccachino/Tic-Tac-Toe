@@ -19,7 +19,7 @@ header {
 body {
   background-color: black;
   color: white;
-  #playerChoice {
+  .playerChoice {
     border: 3px solid white;
     display: flex;
     justify-content: center;
@@ -39,6 +39,77 @@ body {
       width: 5vw;
       height: 40px;
       font-weight: bold;
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
     }
+  }
+  .gameBoard {
+    display: grid;
+    justify-content: center;
+    border: 2px solid white;
+    text-align: center;
+    padding: 40px;
+    #playerTurn {
+      margin-bottom: 50px;
+    }
+    #allSquares {
+      background-color: white;
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      margin-bottom: 70px;
+      .square {
+        background-color: black;
+        height: 180px;
+        width: 180px;
+      }
+    }
+    .restart {
+      width: 200px;
+      height: 70px;
+      justify-self: center;
+      color: white;
+      background-color: black;
+      font-size: 1.5em;
+      font-weight: bold;
+      border: 1px solid white;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+  .winner {
+    display: grid;
+    justify-content: center;
+    margin-top: 200px;
+    #winnerOutput {
+      font-size: 3em;
+      text-decoration: underline;
+      margin-bottom: 100px;
+    }
+    #newGame {
+      width: 200px;
+      height: 70px;
+      font-size: 1.5em;
+      color: white;
+      border: 1px solid white;
+      background-color: black;
+      font-weight: bold;
+      justify-self: center;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+  .hide {
+    display: none;
   }
 }

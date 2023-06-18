@@ -12,18 +12,18 @@
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
-    <header>
+    <header class="hide">
       <h1>Tic-Tac-Toe</h1>
     </header>
-    <section id="playerChoice">
+    <section class="playerChoice hide">
       <h2>Player 1:</h2>
       <input type="text" />
       <h2>Player 2:</h2>
       <input type="text" />
       <button id="startGame">Start Game</button>
     </section>
-    <section id="gameBoard">
-      <h2 id="playerTurn"></h2>
+    <section class="gameBoard hide">
+      <h2 id="playerTurn">Player Turn</h2>
       <div id="allSquares">
         <div class="square" data-field="1"></div>
         <div class="square" data-field="2"></div>
@@ -37,9 +37,9 @@
       </div>
       <button class="restart">Restart</button>
     </section>
-    <section id="winner">
-      <h1 id="winnerOutput"></h1>
-      <button class="restart">Restart</button>
+    <section class="winner">
+      <h1 id="winnerOutput">Player is the winner</h1>
+      <button id="newGame">New Game</button>
     </section>
 
     <script src="main.js"></script>
