@@ -2,4 +2,51 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+header {
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid white;
+}
+header h1 {
+  font-size: 3em;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+body #playerChoice {
+  border: 3px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  margin: 50px 25vw;
+}
+body #playerChoice h2 {
+  margin: 5px;
+}
+body #playerChoice input[type=text] {
+  height: 30px;
+  font-size: large;
+  margin-bottom: 10px;
+}
+body #playerChoice #startGame {
+  margin-top: 10px;
+  width: 5vw;
+  height: 40px;
+  font-weight: bold;
 }/*# sourceMappingURL=styles.css.map */

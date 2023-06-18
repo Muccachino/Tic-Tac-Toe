@@ -1,4 +1,44 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+header {
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid white;
+  h1 {
+    font-size: 3em;
+  }
+}
+
+body {
+  background-color: black;
+  color: white;
+  #playerChoice {
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 50px 25vw;
+    h2 {
+      margin: 5px;
+    }
+    input[type="text"] {
+      height: 30px;
+      font-size: large;
+      margin-bottom: 10px;
+    }
+    #startGame {
+      margin-top: 10px;
+      width: 5vw;
+      height: 40px;
+      font-weight: bold;
+    }
+  }
 }
