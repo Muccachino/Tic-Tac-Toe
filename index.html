@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://kit.fontawesome.com/7c1106c071.js"></script>
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
@@ -22,22 +23,35 @@
       <input type="text" />
       <button id="startGame">Start Game</button>
     </section>
-    <section class="gameBoard hide">
-      <h2 id="playerTurn">Player Turn</h2>
-      <div id="allSquares">
-        <div class="square" data-field="1"></div>
-        <div class="square" data-field="2"></div>
-        <div class="square" data-field="3"></div>
-        <div class="square" data-field="4"></div>
-        <div class="square" data-field="5"></div>
-        <div class="square" data-field="6"></div>
-        <div class="square" data-field="7"></div>
-        <div class="square" data-field="8"></div>
-        <div class="square" data-field="9"></div>
+    <section class="gameBoard">
+      <div id="boardLeft">
+        <p>
+          Player 1
+          <span><i class="fa-regular fa-circle"></i></span>
+        </p>
       </div>
-      <button class="restart">Restart</button>
+      <div id="boardMiddle">
+        <h2 id="playerTurn">Player Turn</h2>
+        <div id="allSquares">
+          <div class="square" data-field="1"></div>
+          <div class="square" data-field="2"></div>
+          <div class="square" data-field="3"></div>
+          <div class="square" data-field="4"></div>
+          <div class="square" data-field="5"></div>
+          <div class="square" data-field="6"></div>
+          <div class="square" data-field="7"></div>
+          <div class="square" data-field="8"></div>
+          <div class="square" data-field="9"></div>
+        </div>
+        <button class="restart">Restart</button>
+      </div>
+      <div id="boardRight">
+        <p>
+          Player 2 <span><i class="fa-solid fa-x"></i></span>
+        </p>
+      </div>
     </section>
-    <section class="winner">
+    <section class="winner hide">
       <h1 id="winnerOutput">Player is the winner</h1>
       <button id="newGame">New Game</button>
     </section>
