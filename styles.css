@@ -98,6 +98,21 @@ body .gameBoard #boardMiddle #allSquares .square {
   background-color: black;
   height: 180px;
   width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 5em;
+}
+body .gameBoard #boardMiddle #allSquares .square i {
+  -webkit-transition: scale 3s linear;
+  transition: scale 3s linear;
+  scale: 100%;
 }
 body .gameBoard #boardMiddle .restart {
   width: 200px;

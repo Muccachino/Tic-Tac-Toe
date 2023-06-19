@@ -81,6 +81,14 @@ body {
           background-color: black;
           height: 180px;
           width: 180px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 5em;
+          i {
+            transition: scale 3s linear;
+            scale: 100%;
+          }
         }
       }
       .restart {

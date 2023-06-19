@@ -13,22 +13,21 @@
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
-    <header class="hide">
+    <header class="">
       <h1>Tic-Tac-Toe</h1>
     </header>
-    <section class="playerChoice hide">
+    <section class="playerChoice">
       <h2>Player 1:</h2>
-      <input type="text" />
+      <input id="playerOne" type="text" />
       <h2>Player 2:</h2>
-      <input type="text" />
+      <input id="playerTwo" type="text" />
+      <p id="message">Message</p>
       <button id="startGame">Start Game</button>
     </section>
     <section class="gameBoard">
       <div id="boardLeft">
-        <p>
-          Player 1
-          <span><i class="fa-regular fa-circle"></i></span>
-        </p>
+        <p id="boardNameOne">Player 1</p>
+        <span><i class="fa-regular fa-circle"></i></span>
       </div>
       <div id="boardMiddle">
         <h2 id="playerTurn">Player Turn</h2>
@@ -46,12 +45,11 @@
         <button class="restart">Restart</button>
       </div>
       <div id="boardRight">
-        <p>
-          Player 2 <span><i class="fa-solid fa-x"></i></span>
-        </p>
+        <p id="boardNameTwo">Player 2</p>
+        <span><i class="fa-solid fa-x"></i></span>
       </div>
     </section>
-    <section class="winner hide">
+    <section class="winner">
       <h1 id="winnerOutput">Player is the winner</h1>
       <button id="newGame">New Game</button>
     </section>
