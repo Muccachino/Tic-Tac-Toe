@@ -25,12 +25,12 @@
       <button id="startGame">Start Game</button>
     </section>
     <section class="gameBoard hide">
-      <div id="boardLeft">
+      <div id="boardLeft" class="borderName">
         <p id="boardNameOne">Player 1</p>
         <span><i class="fa-regular fa-circle"></i></span>
       </div>
       <div id="boardMiddle">
-        <h2 id="playerTurn">Player Turn</h2>
+        <h1 id="playerTurn">Player Turn</h1>
         <div id="allSquares">
           <div class="square" data-field="1"></div>
           <div class="square" data-field="2"></div>
@@ -44,13 +44,17 @@
         </div>
         <button id="restart">Restart</button>
       </div>
-      <div id="boardRight">
+      <div id="boardRight" class="">
         <p id="boardNameTwo">Player 2</p>
         <span><i class="fa-solid fa-x"></i></span>
       </div>
     </section>
     <section class="winner hide">
       <h1 id="winnerOutput">Player is the winner</h1>
+      <div id="winCounter">
+        <p id="playerOneWins"></p>
+        <p id="playerTwoWins"></p>
+      </div>
       <button id="replay">Replay</button>
       <button id="newGame">New Game</button>
     </section>

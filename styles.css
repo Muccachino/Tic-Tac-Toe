@@ -75,40 +75,34 @@ body .gameBoard {
   text-align: center;
   padding: 40px;
 }
-body .gameBoard #boardLeft {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
-  padding-right: 200px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.5em;
-}
-body .gameBoard #boardLeft p {
-  margin-right: 15px;
-}
+body .gameBoard #boardLeft,
 body .gameBoard #boardRight {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  padding-left: 200px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 15px;
   font-size: 1.5em;
+  height: 100px;
 }
+body .gameBoard #boardLeft p,
 body .gameBoard #boardRight p {
   margin-right: 15px;
 }
 body .gameBoard #boardMiddle #playerTurn {
   margin-bottom: 50px;
+  font-size: 2em;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
 }
 body .gameBoard #boardMiddle #allSquares {
   background-color: white;
@@ -155,12 +149,21 @@ body .winner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 body .winner #winnerOutput {
   font-size: 3em;
   text-decoration: underline;
   margin-bottom: 100px;
+}
+body .winner #winCounter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 100px;
+  font-size: 2em;
 }
 body .winner #newGame,
 body .winner #replay {
@@ -178,6 +181,9 @@ body .winner #newGame:hover,
 body .winner #replay:hover {
   background-color: white;
   color: black;
+}
+body .borderName {
+  border: 1px solid white;
 }
 body .hide {
   display: none;

@@ -6,6 +6,8 @@ class Gameboard {
     this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     this.roundCounter = 0;
     this.playerTurnCounter = 1;
+    this.playerOneWins = 0;
+    this.playerTwoWins = 0;
   }
   addPlayer(name) {
     let player = new Player(name);
@@ -81,8 +83,6 @@ const checkPlayerInput = (playerOne, playerTwo) => {
 const createPlayers = (playerOne, playerTwo) => {
   let one = gameboard.addPlayer(playerOne);
   let two = gameboard.addPlayer(playerTwo);
-  console.log(gameboard.players[0], gameboard.players[1]);
-  console.log(gameboard.players);
 
   let boardNameOne = document.querySelector("#boardNameOne");
   let boardNameTwo = document.querySelector("#boardNameTwo");
@@ -104,6 +104,7 @@ const setMark = (e) => {
       gameboard.roundCounter += 1;
       gameboard.checkWin();
       gameboard.playerTurnCounter = 2;
+      borderActivePlayer();
       showPlayerTurn();
     } else if (
       gameboard.playerTurnCounter === 2 &&
@@ -114,6 +115,7 @@ const setMark = (e) => {
       gameboard.roundCounter += 1;
       gameboard.checkWin();
       gameboard.playerTurnCounter = 1;
+      borderActivePlayer();
       showPlayerTurn();
     }
   }
@@ -131,6 +133,18 @@ const createCross = (targetElement) => {
   targetElement.appendChild(cross);
 };
 
+const borderActivePlayer = () => {
+  const nameBoxOne = document.querySelector("#boardLeft");
+  const nameBoxTwo = document.querySelector("#boardRight");
+  if (gameboard.playerTurnCounter === 1) {
+    nameBoxOne.classList.add("borderName");
+    nameBoxTwo.classList.remove("borderName");
+  } else {
+    nameBoxOne.classList.remove("borderName");
+    nameBoxTwo.classList.add("borderName");
+  }
+};
+
 const showWinner = () => {
   let gameBoard = document.querySelector(".gameBoard");
   let winnerPage = document.querySelector(".winner");
@@ -138,11 +152,21 @@ const showWinner = () => {
   winnerPage.classList.toggle("hide");
 
   let winnerOutput = document.querySelector("#winnerOutput");
+  let playerOneWins = document.querySelector("#playerOneWins");
+  let playerTwoWins = document.querySelector("#playerTwoWins");
+
   if (gameboard.playerTurnCounter === 1) {
     winnerOutput.innerHTML = gameboard.players[0].name + " is the winner!";
+    gameboard.playerOneWins += 1;
   } else {
     winnerOutput.innerHTML = gameboard.players[1].name + " is the winner!";
+    gameboard.playerTwoWins += 1;
   }
+
+  playerOneWins.innerHTML =
+    gameboard.players[0].name + ": " + gameboard.playerOneWins;
+  playerTwoWins.innerHTML =
+    gameboard.players[1].name + ": " + gameboard.playerTwoWins;
 };
 
 const showDraw = () => {
@@ -184,9 +208,18 @@ const replay = () => {
   });
   gameboard.board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   gameboard.roundCounter = 0;
-  gameboard.playerTurnCounter = 1;
+  determineStartPlayer();
+  borderActivePlayer();
   showPlayerTurn();
   showDraw();
+};
+
+const determineStartPlayer = () => {
+  if ((gameboard.playerOneWins + gameboard.playerTwoWins) % 2 === 0) {
+    gameboard.playerTurnCounter = 1;
+  } else {
+    gameboard.playerTurnCounter = 2;
+  }
 };
 
 const restart = () => {
