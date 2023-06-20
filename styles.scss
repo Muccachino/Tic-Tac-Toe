@@ -130,7 +130,8 @@ body {
       text-decoration: underline;
       margin-bottom: 100px;
     }
-    #newGame {
+    #newGame,
+    #replay {
       width: 200px;
       height: 70px;
       font-size: 1.5em;
@@ -138,6 +139,7 @@ body {
       border: 1px solid white;
       background-color: black;
       font-weight: bold;
+      margin-bottom: 50px;
       justify-self: center;
       &:hover {
         background-color: white;

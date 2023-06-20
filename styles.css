@@ -162,7 +162,8 @@ body .winner #winnerOutput {
   text-decoration: underline;
   margin-bottom: 100px;
 }
-body .winner #newGame {
+body .winner #newGame,
+body .winner #replay {
   width: 200px;
   height: 70px;
   font-size: 1.5em;
@@ -170,9 +171,11 @@ body .winner #newGame {
   border: 1px solid white;
   background-color: black;
   font-weight: bold;
+  margin-bottom: 50px;
   justify-self: center;
 }
-body .winner #newGame:hover {
+body .winner #newGame:hover,
+body .winner #replay:hover {
   background-color: white;
   color: black;
 }

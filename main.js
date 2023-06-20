@@ -43,7 +43,7 @@ class Gameboard {
         this.board[1] != 0) ||
       (this.board[3] === this.board[5] &&
         this.board[5] === this.board[7] &&
-        this.board[7] === this.board[9] &&
+        this.board[3] === this.board[7] &&
         this.board[3] != 0)
     ) {
       showWinner();
@@ -175,6 +175,20 @@ const showPlayerTurn = () => {
   }
 };
 
+const replay = () => {
+  const allSquares = document.querySelectorAll(".square");
+  allSquares.forEach((square) => {
+    if (square.firstChild) {
+      square.removeChild(square.firstChild);
+    }
+  });
+  gameboard.board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  gameboard.roundCounter = 0;
+  gameboard.playerTurnCounter = 1;
+  showPlayerTurn();
+  showDraw();
+};
+
 const restart = () => {
   location.reload();
 };
@@ -189,6 +203,11 @@ const listenToClick = (() => {
 const gameStart = (() => {
   const startGame = document.querySelector("#startGame");
   startGame.addEventListener("click", getPlayerNames);
+})();
+
+const replayGame = (() => {
+  const replayGameButton = document.querySelector("#replay");
+  replayGameButton.addEventListener("click", replay);
 })();
 
 const newGame = (() => {
