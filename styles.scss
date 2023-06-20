@@ -124,6 +124,7 @@ body {
     margin-top: 100px;
     #winnerOutput {
       font-size: 3em;
+      text-align: center;
       text-decoration: underline;
       margin-bottom: 100px;
     }
@@ -132,6 +133,7 @@ body {
       justify-content: space-around;
       margin-bottom: 100px;
       font-size: 2em;
+      width: 450px;
     }
     #newGame,
     #replay {

@@ -133,6 +133,15 @@ const createCross = (targetElement) => {
   targetElement.appendChild(cross);
 };
 
+const showPlayerTurn = () => {
+  let playerTurn = document.querySelector("#playerTurn");
+  if (gameboard.playerTurnCounter === 1) {
+    playerTurn.innerHTML = gameboard.players[0].name + " is next !";
+  } else {
+    playerTurn.innerHTML = gameboard.players[1].name + " is next !";
+  }
+};
+
 const borderActivePlayer = () => {
   const nameBoxOne = document.querySelector("#boardLeft");
   const nameBoxTwo = document.querySelector("#boardRight");
@@ -143,6 +152,17 @@ const borderActivePlayer = () => {
     nameBoxOne.classList.remove("borderName");
     nameBoxTwo.classList.add("borderName");
   }
+};
+
+const showGameBoard = () => {
+  let header = document.querySelector("header");
+  let playerChoice = document.querySelector(".playerChoice");
+  let gameBoard = document.querySelector(".gameBoard");
+
+  header.classList.toggle("hide");
+  playerChoice.classList.toggle("hide");
+  gameBoard.classList.toggle("hide");
+  showPlayerTurn();
 };
 
 const showWinner = () => {
@@ -176,27 +196,14 @@ const showDraw = () => {
   winnerPage.classList.toggle("hide");
 
   let winnerOutput = document.querySelector("#winnerOutput");
+  let playerOneWins = document.querySelector("#playerOneWins");
+  let playerTwoWins = document.querySelector("#playerTwoWins");
+
   winnerOutput.innerHTML = "It`s a Draw!";
-};
-
-const showGameBoard = () => {
-  let header = document.querySelector("header");
-  let playerChoice = document.querySelector(".playerChoice");
-  let gameBoard = document.querySelector(".gameBoard");
-
-  header.classList.toggle("hide");
-  playerChoice.classList.toggle("hide");
-  gameBoard.classList.toggle("hide");
-  showPlayerTurn();
-};
-
-const showPlayerTurn = () => {
-  let playerTurn = document.querySelector("#playerTurn");
-  if (gameboard.playerTurnCounter === 1) {
-    playerTurn.innerHTML = gameboard.players[0].name + " is next !";
-  } else {
-    playerTurn.innerHTML = gameboard.players[1].name + " is next !";
-  }
+  playerOneWins.innerHTML =
+    gameboard.players[0].name + ": " + gameboard.playerOneWins;
+  playerTwoWins.innerHTML =
+    gameboard.players[1].name + ": " + gameboard.playerTwoWins;
 };
 
 const replay = () => {

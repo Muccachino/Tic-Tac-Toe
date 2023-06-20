@@ -153,6 +153,7 @@ body .winner {
 }
 body .winner #winnerOutput {
   font-size: 3em;
+  text-align: center;
   text-decoration: underline;
   margin-bottom: 100px;
 }
@@ -164,6 +165,7 @@ body .winner #winCounter {
       justify-content: space-around;
   margin-bottom: 100px;
   font-size: 2em;
+  width: 450px;
 }
 body .winner #newGame,
 body .winner #replay {
