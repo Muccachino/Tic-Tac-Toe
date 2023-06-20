@@ -1,11 +1,11 @@
 "use strict";
 
-let turnCounter = 1;
-
 class Gameboard {
   constructor() {
     this.players = [];
     this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    this.roundCounter = 0;
+    this.playerTurnCounter = 1;
   }
   addPlayer(name) {
     let player = new Player(name);
@@ -47,6 +47,8 @@ class Gameboard {
         this.board[3] != 0)
     ) {
       showWinner();
+    } else if (this.roundCounter === 9) {
+      showDraw();
     }
   }
 }
@@ -94,22 +96,24 @@ const setMark = (e) => {
   let targetElement = e.target;
   if (targetElement.matches(".square")) {
     if (
-      turnCounter === 1 &&
+      gameboard.playerTurnCounter === 1 &&
       gameboard.board[parseInt(targetElement.dataset.field)] === 0
     ) {
       createCircle(targetElement);
       gameboard.board[parseInt(targetElement.dataset.field)] = 1;
+      gameboard.roundCounter += 1;
       gameboard.checkWin();
-      turnCounter = 2;
+      gameboard.playerTurnCounter = 2;
       showPlayerTurn();
     } else if (
-      turnCounter === 2 &&
+      gameboard.playerTurnCounter === 2 &&
       gameboard.board[parseInt(targetElement.dataset.field)] === 0
     ) {
       createCross(targetElement);
       gameboard.board[parseInt(targetElement.dataset.field)] = 2;
+      gameboard.roundCounter += 1;
       gameboard.checkWin();
-      turnCounter = 1;
+      gameboard.playerTurnCounter = 1;
       showPlayerTurn();
     }
   }
@@ -134,11 +138,21 @@ const showWinner = () => {
   winnerPage.classList.toggle("hide");
 
   let winnerOutput = document.querySelector("#winnerOutput");
-  if (turnCounter === 1) {
+  if (gameboard.playerTurnCounter === 1) {
     winnerOutput.innerHTML = gameboard.players[0].name + " is the winner!";
   } else {
     winnerOutput.innerHTML = gameboard.players[1].name + " is the winner!";
   }
+};
+
+const showDraw = () => {
+  let gameBoard = document.querySelector(".gameBoard");
+  let winnerPage = document.querySelector(".winner");
+  gameBoard.classList.toggle("hide");
+  winnerPage.classList.toggle("hide");
+
+  let winnerOutput = document.querySelector("#winnerOutput");
+  winnerOutput.innerHTML = "It`s a Draw!";
 };
 
 const showGameBoard = () => {
@@ -149,11 +163,12 @@ const showGameBoard = () => {
   header.classList.toggle("hide");
   playerChoice.classList.toggle("hide");
   gameBoard.classList.toggle("hide");
+  showPlayerTurn();
 };
 
 const showPlayerTurn = () => {
   let playerTurn = document.querySelector("#playerTurn");
-  if (turnCounter === 1) {
+  if (gameboard.playerTurnCounter === 1) {
     playerTurn.innerHTML = gameboard.players[0].name + " is next !";
   } else {
     playerTurn.innerHTML = gameboard.players[1].name + " is next !";
