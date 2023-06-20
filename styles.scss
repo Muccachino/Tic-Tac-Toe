@@ -16,6 +16,15 @@ header {
   }
 }
 
+@keyframes sizechange {
+  0% {
+    scale: 10%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
+
 body {
   background-color: black;
   color: white;
@@ -59,6 +68,9 @@ body {
       padding-right: 200px;
       align-items: center;
       font-size: 1.5em;
+      p {
+        margin-right: 15px;
+      }
     }
     #boardRight {
       display: flex;
@@ -66,6 +78,9 @@ body {
       padding-left: 200px;
       align-items: center;
       font-size: 1.5em;
+      p {
+        margin-right: 15px;
+      }
     }
     #boardMiddle {
       #playerTurn {
@@ -86,12 +101,11 @@ body {
           justify-content: center;
           font-size: 5em;
           i {
-            transition: scale 3s linear;
-            scale: 100%;
+            animation: sizechange 0.5s;
           }
         }
       }
-      .restart {
+      #restart {
         width: 200px;
         height: 70px;
         justify-self: center;

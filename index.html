@@ -21,10 +21,10 @@
       <input id="playerOne" type="text" />
       <h2>Player 2:</h2>
       <input id="playerTwo" type="text" />
-      <p id="message">Message</p>
+      <p id="message"></p>
       <button id="startGame">Start Game</button>
     </section>
-    <section class="gameBoard">
+    <section class="gameBoard hide">
       <div id="boardLeft">
         <p id="boardNameOne">Player 1</p>
         <span><i class="fa-regular fa-circle"></i></span>
@@ -42,14 +42,14 @@
           <div class="square" data-field="8"></div>
           <div class="square" data-field="9"></div>
         </div>
-        <button class="restart">Restart</button>
+        <button id="restart">Restart</button>
       </div>
       <div id="boardRight">
         <p id="boardNameTwo">Player 2</p>
         <span><i class="fa-solid fa-x"></i></span>
       </div>
     </section>
-    <section class="winner">
+    <section class="winner hide">
       <h1 id="winnerOutput">Player is the winner</h1>
       <button id="newGame">New Game</button>
     </section>

@@ -87,6 +87,7 @@ const createPlayers = (playerOne, playerTwo) => {
 
   boardNameOne.innerHTML = gameboard.players[0].name;
   boardNameTwo.innerHTML = gameboard.players[1].name;
+  showGameBoard();
 };
 
 const setMark = (e) => {
@@ -100,6 +101,7 @@ const setMark = (e) => {
       gameboard.board[parseInt(targetElement.dataset.field)] = 1;
       gameboard.checkWin();
       turnCounter = 2;
+      showPlayerTurn();
     } else if (
       turnCounter === 2 &&
       gameboard.board[parseInt(targetElement.dataset.field)] === 0
@@ -108,6 +110,7 @@ const setMark = (e) => {
       gameboard.board[parseInt(targetElement.dataset.field)] = 2;
       gameboard.checkWin();
       turnCounter = 1;
+      showPlayerTurn();
     }
   }
 };
@@ -125,12 +128,40 @@ const createCross = (targetElement) => {
 };
 
 const showWinner = () => {
+  let gameBoard = document.querySelector(".gameBoard");
+  let winnerPage = document.querySelector(".winner");
+  gameBoard.classList.toggle("hide");
+  winnerPage.classList.toggle("hide");
+
   let winnerOutput = document.querySelector("#winnerOutput");
-  if ((turnCounter = 1)) {
-    winnerOutput.innerHTML = gameboard.players[0].name + " is the winner";
+  if (turnCounter === 1) {
+    winnerOutput.innerHTML = gameboard.players[0].name + " is the winner!";
   } else {
-    (winnerOutput.innerHTML = gameboard.players[1].name), " is the winner";
+    winnerOutput.innerHTML = gameboard.players[1].name + " is the winner!";
   }
+};
+
+const showGameBoard = () => {
+  let header = document.querySelector("header");
+  let playerChoice = document.querySelector(".playerChoice");
+  let gameBoard = document.querySelector(".gameBoard");
+
+  header.classList.toggle("hide");
+  playerChoice.classList.toggle("hide");
+  gameBoard.classList.toggle("hide");
+};
+
+const showPlayerTurn = () => {
+  let playerTurn = document.querySelector("#playerTurn");
+  if (turnCounter === 1) {
+    playerTurn.innerHTML = gameboard.players[0].name + " is next !";
+  } else {
+    playerTurn.innerHTML = gameboard.players[1].name + " is next !";
+  }
+};
+
+const restart = () => {
+  location.reload();
 };
 
 const listenToClick = (() => {
@@ -143,4 +174,12 @@ const listenToClick = (() => {
 const gameStart = (() => {
   const startGame = document.querySelector("#startGame");
   startGame.addEventListener("click", getPlayerNames);
+})();
+
+const newGame = (() => {
+  const newGameButton = document.querySelector("#newGame");
+  const restartButton = document.querySelector("#restart");
+
+  newGameButton.addEventListener("click", restart);
+  restartButton.addEventListener("click", restart);
 })();
